@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "@xstate/react": "^1.0.0",
+    "immer": "^7.0.9",
+    "next": "^9.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "xstate": "^4.13.0"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build && next export"
+  },
+  "devDependencies": {
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.49",
+    "typescript": "^4.0.3"
+  }
+}
