@@ -10,7 +10,7 @@ const select = {
   "Select TCs": h(" f"),
   "Select Monasteries": h(" ", { shift: 1, k: "a" }),
   "Select University": h(" ", { shift: 1, k: "s" }),
-  "Select Market": h(" ", { shift: 1, k: "d" }),
+  "Select Market": h(" g"),
   "Select Blacksmith": h(" ", { shift: 1, k: "f" }),
 };
 
