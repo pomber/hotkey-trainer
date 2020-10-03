@@ -15,13 +15,13 @@ const select = {
 };
 
 const game = {
-  Diplomacy: h(" ", { shift: 1, k: "z" }),
-  "Normal Map": h(" ", { shift: 1, k: "e" }),
-  "Combat Map": h(" ", { shift: 1, k: "r" }),
-  "Eco Map": h(" ", { shift: 1, k: "t" }),
+  Diplomacy: h(" ", { ctrl: 1, k: "c" }),
+  "Normal Map": h(" ", { ctrl: 1, k: "f" }),
+  "Combat Map": h(" ", { ctrl: 1, k: "d" }),
+  "Eco Map": h(" ", { ctrl: 1, k: "s" }),
   Flare: h(" ", { shift: 1, k: "g" }),
-  Pause: h(" ", { shift: 1, k: "x" }),
-  "Change Colors": h(" ", { shift: 1, k: "t" }),
+  Pause: h(" ", { ctrl: 1, k: "v" }),
+  "Change Colors": h(" ", { ctrl: 1, k: "g" }),
 };
 
 const units = {
@@ -40,8 +40,8 @@ const units = {
 
 const goToCommands = {
   "Go to Mill": h(" w"),
-  "Go to Lumber Camp": h(" e"),
-  "Go to Mining Camp": h(" r"),
+  "Go to Lumber Camp": h(" ", {shift: 1, k: 'z'}),
+  "Go to Mining Camp": h(" ", {shift: 1, k: 'x'}),
   "Go to TC": h({ k: "CapsLock" }),
   "Last Notification": h({ k: "Tab" }),
 };
@@ -49,8 +49,8 @@ const goToCommands = {
 const groups = {
   "Create group 9": h("v"),
   "Select group 9": h("c"),
-  "Create group 8": h({ shift: 1, k: "v" }),
-  "Select group 8": h({ shift: 1, k: "c" }),
+  // "Create group 8": h({ shift: 1, k: "v" }),
+  // "Select group 8": h({ shift: 1, k: "c" }),
 };
 
 const ecoBuild = {
@@ -93,12 +93,12 @@ const combos = {
 };
 
 export const allCombos = c({
-  ...select,
-  ...game,
-  ...units,
+  // ...select,
+  // ...game,
+  // ...units,
   ...ecoBuild,
   ...militarBuild,
-  ...goToCommands,
-  ...groups,
-  ...combos,
+  // ...goToCommands,
+  // ...groups,
+  // ...combos,
 });
