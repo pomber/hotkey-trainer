@@ -96,7 +96,7 @@ export const build = s([
   ["Build Farm", ["fd"], "farm.png"],
   ["Build House", ["ff"], "house.png"],
   ["Build Blacksmith", ["fg"], "blacksmith.png"],
-  ["Build University", ["f", { shift: 1, k: "a" }], "uni.png"],
+  ["Build University", ["f", { shift: 1, k: "s" }], "uni.png"],
   ["Cancel Eco Build", ["fz"], ""],
   ["Build Castle", ["dq"], "castle.png"],
   ["Build Barracks", ["dw"], "barracks.png"],
