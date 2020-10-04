@@ -49,14 +49,6 @@ export const queue = s([
   ["TC Back to Work", [" fg"], ""],
 ]);
 
-const goToCommands = {
-  "Go to Mill": h(" w"),
-  "Go to Lumber Camp": h(" ", { shift: 1, k: "z" }),
-  "Go to Mining Camp": h(" ", { shift: 1, k: "x" }),
-  "Go to TC": h({ k: "CapsLock" }),
-  "Last Notification": h({ k: "Tab" }),
-};
-
 const game = {
   Diplomacy: h(" ", { ctrl: 1, k: "c" }),
   "Normal Map": h(" ", { ctrl: 1, k: "f" }),
