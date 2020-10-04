@@ -1,18 +1,18 @@
 import { c, h, s } from "./combo";
 
-export const select = s([
-  ["Select Docks", [" q"], "dock.png"],
-  ["Select Barracks", [" a"], "barracks.png"],
-  ["Select Ranges", [" s"], "range.png"],
-  ["Select Stables", [" d"], "stable.png"],
-  ["Select Siege", [" x"], "siege.png"],
-  ["Select Castles", [" z"], "castle.png"],
-  ["Select TCs", [" f"], "tc.png"],
-  ["Select Monasteries", [" ", { shift: 1, k: "a" }], "mona.png"],
-  ["Select University", [" ", { shift: 1, k: "s" }], "uni.png"],
-  ["Select Market", [" g"], "market.png"],
-  ["Select Blacksmith", [" ", { shift: 1, k: "f" }], "blacksmith.png"],
-]);
+// export const select = s([
+//   ["Select Docks", [" q"], "dock.png"],
+//   ["Select Barracks", [" a"], "barracks.png"],
+//   ["Select Ranges", [" s"], "range.png"],
+//   ["Select Stables", [" d"], "stable.png"],
+//   ["Select Siege", [" x"], "siege.png"],
+//   ["Select Castles", [" z"], "castle.png"],
+//   ["Select TCs", [" f"], "tc.png"],
+//   ["Select Monasteries", [" ", { shift: 1, k: "a" }], "mona.png"],
+//   ["Select University", [" ", { shift: 1, k: "s" }], "uni.png"],
+//   ["Select Market", [" g"], "market.png"],
+//   ["Select Blacksmith", [" ", { shift: 1, k: "f" }], "blacksmith.png"],
+// ]);
 
 export const queue = s([
   ["Create Militia", [" ad"], "militia.png"],
@@ -26,22 +26,33 @@ export const queue = s([
   ["Create Ram", [" xd"], "ram.png"],
   ["Create Mangonel", [" xf"], "mango.png"],
   ["Create Scorpion", [" xe"], "scorpion.png"],
-  // ["Create Bombard Cannon", [" xe"], "bc.png"],
+  ["Create Bombard Cannon", [" xr"], "bc.png"],
   ["Create Unique Unit", [" zd"], "uu.png"],
   ["Create Trebuchet", [" zf"], "trebu.png"],
   ["Create Villager", [" ff"], "villager.png"],
   ["Research Loom", [" ff"], "loom.png"],
   ["Create Fishing Ship", [" qd"], "fish.png"],
-  ["Create Galley", [" qf"], "galley.png"],
+  // ["Create Galley", [" qf"], "galley.png"],
   ["Create Fire Ship", [" qe"], "fire.png"],
-  ["Create Demo Ship", [" qr"], "demo.png"],
+  // ["Create Demo Ship", [" qr"], "demo.png"],
   ["Create Monk", [" ", { shift: 1, k: "a" }, "d"], "monk.png"],
   ["Select University", [" ", { shift: 1, k: "s" }], "uni.png"],
   ["Select Market", [" g"], "market.png"],
   ["Select Blacksmith", [" ", { shift: 1, k: "f" }], "blacksmith.png"],
+  ["Research Farm Upgrade and Reseed", [" waf"], "ecofood.png"],
+  ["Research Wood Upgrade", [" ", { shift: 1, k: "z" }, "a"], "ecowood.png"],
+  ["Go to Mining Camp", [" ", { shift: 1, k: "x" }], "mining.png"],
+  ["Last Notification", [{ k: "Tab" }], ""],
+  ["Focus TC", [{ k: "CapsLock" }], ""],
 ]);
 
-
+const goToCommands = {
+  "Go to Mill": h(" w"),
+  "Go to Lumber Camp": h(" ", { shift: 1, k: "z" }),
+  "Go to Mining Camp": h(" ", { shift: 1, k: "x" }),
+  "Go to TC": h({ k: "CapsLock" }),
+  "Last Notification": h({ k: "Tab" }),
+};
 
 const game = {
   Diplomacy: h(" ", { ctrl: 1, k: "c" }),
@@ -67,14 +78,6 @@ const units = {
   Patrol: h("f"),
 };
 
-const goToCommands = {
-  "Go to Mill": h(" w"),
-  "Go to Lumber Camp": h(" ", { shift: 1, k: "z" }),
-  "Go to Mining Camp": h(" ", { shift: 1, k: "x" }),
-  "Go to TC": h({ k: "CapsLock" }),
-  "Last Notification": h({ k: "Tab" }),
-};
-
 const groups = {
   "Create group 9": h("v"),
   "Select group 9": h("c"),
@@ -82,54 +85,34 @@ const groups = {
   // "Select group 8": h({ shift: 1, k: "c" }),
 };
 
-export const build = []
-
-const ecoBuild = {
-  "Build Town Center": h("fq"),
-  "Build Mill": h("fw"),
-  "Build Lumber Camp": h("fe"),
-  "Build Mining Camp": h("fr"),
-  "Build Market": h("ft"),
-  "Build Monastery": h("fa"),
-  "Build Dock": h("fs"),
-  "Build Farm": h("fd"),
-  "Build House": h("ff"),
-  "Build Blacksmith": h("fg"),
-  "Build University": h("f", { shift: 1, k: "a" }),
-  "Cancel Eco Build": h("fz"),
-};
-
-const militarBuild = {
-  "Build Castle": h("dq"),
-  "Build Barracks": h("dw"),
-  "Build Archery Range": h("de"),
-  "Build Stable": h("dr"),
-  "Build Siege Workshop": h("dt"),
-  "Build Tower": h("da"),
-  "Build Stone Gate": h("ds"),
-  "Build Palisade Gate": h("dd"),
-  "Build Palisade": h("df"),
-  "Build Stone Wall": h("dg"),
-  "Build Bombard Tower": h("d", { shift: 1, k: "a" }),
-  "Build Outpost": h("d", { shift: 1, k: "s" }),
-  "Build Palisade Gate and Rotate": h("dd", { shift: 1, k: "d" }),
-};
-
-const combos = {
-  "Build Villager": h(" ff"),
-  Loom: h(" fd"),
-  "Create Archer": h(" sq"),
-  "Create Knight": h(" dw"),
-  "Create Militia": h(" aq"),
-};
-
-export const allCombos = c({
-  // ...select,
-  // ...game,
-  // ...units,
-  ...ecoBuild,
-  ...militarBuild,
-  // ...goToCommands,
-  // ...groups,
-  // ...combos,
-});
+export const build = s([
+  ["Build Town Center", ["fq"], "tc.png"],
+  ["Build Mill", ["fw"], "mill.png"],
+  ["Build Lumber Camp", ["fe"], "lumber.png"],
+  ["Build Mining Camp", ["fr"], "mining.png"],
+  ["Build Market", ["ft"], "market.png"],
+  ["Build Monastery", ["fa"], "mona.png"],
+  ["Build Dock", ["fs"], "dock.png"],
+  ["Build Farm", ["fd"], "farm.png"],
+  ["Build House", ["ff"], "house.png"],
+  ["Build Blacksmith", ["fg"], "blacksmith.png"],
+  ["Build University", ["f", { shift: 1, k: "a" }], "uni.png"],
+  ["Cancel Eco Build", ["fz"], ""],
+  ["Build Castle", ["dq"], "castle.png"],
+  ["Build Barracks", ["dw"], "barracks.png"],
+  ["Build Archery Range", ["de"], "range.png"],
+  ["Build Stable", ["dr"], "stable.png"],
+  ["Build Siege Workshop", ["dt"], "siege.png"],
+  ["Build Tower", ["da"], "tower.png"],
+  ["Build Stone Gate", ["ds"], "gate.png"],
+  ["Build Palisade Gate", ["dd"], "paligate.png"],
+  ["Build Palisade", ["df"], "palisade.png"],
+  ["Build Stone Wall", ["dg"], "wall.png"],
+  ["Build Bombard Tower", ["d", { shift: 1, k: "a" }], "btower.png"],
+  ["Build Outpost", ["d", { shift: 1, k: "s" }], "outpost.png"],
+  [
+    "Build Palisade Gate and Rotate",
+    ["dd", { shift: 1, k: "d" }],
+    "paligate.png",
+  ],
+]);
