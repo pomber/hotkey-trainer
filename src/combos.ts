@@ -30,7 +30,7 @@ export const queue = s([
   ["Create Unique Unit", [" zd"], "uu.png"],
   ["Create Trebuchet", [" zf"], "trebu.png"],
   ["Create Villager", [" ff"], "villager.png"],
-  ["Research Loom", [" ff"], "loom.png"],
+  ["Research Loom", [" fd"], "loom.png"],
   ["Create Fishing Ship", [" qd"], "fish.png"],
   // ["Create Galley", [" qf"], "galley.png"],
   ["Create Fire Ship", [" qe"], "fire.png"],
@@ -44,6 +44,9 @@ export const queue = s([
   ["Go to Mining Camp", [" ", { shift: 1, k: "x" }], "mining.png"],
   ["Last Notification", [{ k: "Tab" }], ""],
   ["Focus TC", [{ k: "CapsLock" }], ""],
+  ["Ungarrison Vills", [" fa"], ""],
+  ["Change TC Gatherpoint", [" fs"], ""],
+  ["TC Back to Work", [" fg"], ""],
 ]);
 
 const goToCommands = {
