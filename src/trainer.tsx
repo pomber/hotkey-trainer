@@ -1,6 +1,6 @@
 import React from "react";
 import { Combo, toString } from "./combo";
-import { reducer, initialState, Action, State } from "./state";
+import { reducer, initialState, Action, State, Test } from "./state";
 
 export function Trainer({ combos }: { combos: Combo[] }) {
   const [state, dispatch] = React.useReducer(reducer, initialState(combos));
@@ -14,6 +14,7 @@ export function Trainer({ combos }: { combos: Combo[] }) {
         dispatch({ type: "key", event });
       }
     });
+    dispatch({ type: "next" });
   }, []);
 
   return (
@@ -32,27 +33,21 @@ export function Trainer({ combos }: { combos: Combo[] }) {
           color: white;
         }
       `}</style>
-      <Game dispatch={dispatch} state={state as State} />
+      {state.isPlaying ? <Game state={state as State} /> : null}
     </div>
   );
 }
 
-// function Start({ dispatch, state }) {
-//   return (
-//     <div>
-//       <button onClick={() => dispatch({ type: "next" })}>Start</button>
-//     </div>
-//   );
-// }
+function Game({ state }: { state: State }) {
+  return (
+    <div>
+      <ShowTest test={state.currentTest} />
+      <ShowTest test={state.nextTest} hide />
+    </div>
+  );
+}
 
-function Game({
-  dispatch,
-  state,
-}: {
-  dispatch: React.Dispatch<Action>;
-  state: State;
-}) {
-  const test = state.currentTest;
+function ShowTest({ test, hide }: { test: Test; hide?: boolean }) {
   return (
     <div
       style={{
@@ -62,7 +57,7 @@ function Game({
             : test.result === "success"
             ? "#66ff66"
             : "#bbb",
-        display: "flex",
+        display: hide ? "none" : "flex",
         alignItems: "center",
         flexFlow: "column",
       }}

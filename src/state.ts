@@ -3,7 +3,7 @@ import { Combo, match } from "./combo";
 
 type TestResult = "pending" | "fail" | "success";
 
-type Test = {
+export type Test = {
   readonly combo: Combo;
   readonly startTime?: number;
   readonly time?: number;
