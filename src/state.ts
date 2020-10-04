@@ -1,6 +1,5 @@
 import produce, { Draft } from "immer";
 import { Combo, match } from "./combo";
-import { allCombos } from "./combos";
 
 type TestResult = "pending" | "fail" | "success";
 
@@ -16,27 +15,31 @@ export type State = {
   readonly isPlaying: boolean;
   readonly currentTest: Test;
   readonly nextTest: Test;
+  readonly combos: Combo[];
 };
 
 export type Action =
   | { type: "next" | "stop" }
   | { type: "key"; event: KeyboardEvent };
 
-export const initialState: State = {
-  isPlaying: false,
-  currentTest: getRandomTest(),
-  nextTest: getRandomTest(),
-};
+export function initialState(combos: Combo[]): State {
+  return {
+    isPlaying: false,
+    currentTest: getRandomTest(combos),
+    nextTest: getRandomTest(combos),
+    combos,
+  };
+}
 
 export const reducer = produce((draft: Draft<State>, action: Action) => {
   if (!draft.isPlaying && action.type === "next") {
     draft.isPlaying = true;
-    nextTest(draft);
+    nextTest(draft, draft.combos);
     return;
   }
 
   if (draft.isPlaying && action.type === "next") {
-    nextTest(draft);
+    nextTest(draft, draft.combos);
     return;
   }
 
@@ -66,15 +69,15 @@ export const reducer = produce((draft: Draft<State>, action: Action) => {
   }
 });
 
-function nextTest(draft: Draft<State>) {
+function nextTest(draft: Draft<State>, combos: Combo[]) {
   draft.currentTest = draft.nextTest;
   draft.currentTest.startTime = window.performance.now();
-  draft.nextTest = getRandomTest();
+  draft.nextTest = getRandomTest(combos);
 }
 
-function getRandomTest(): Test {
+function getRandomTest(combos: Combo[]): Test {
   return {
-    combo: allCombos[Math.floor(Math.random() * allCombos.length)],
+    combo: combos[Math.floor(Math.random() * combos.length)],
     keyIndex: 0,
     result: "pending",
   };

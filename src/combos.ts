@@ -1,18 +1,33 @@
-import { c, h } from "./combo";
+import { c, h, s } from "./combo";
 
-const select = {
-  "Select Docks": h(" q"),
-  "Select Barracks": h(" a"),
-  "Select Ranges": h(" s"),
-  "Select Stables": h(" d"),
-  "Select Siege W.": h(" x"),
-  "Select Castles": h(" z"),
-  "Select TCs": h(" f"),
-  "Select Monasteries": h(" ", { shift: 1, k: "a" }),
-  "Select University": h(" ", { shift: 1, k: "s" }),
-  "Select Market": h(" g"),
-  "Select Blacksmith": h(" ", { shift: 1, k: "f" }),
-};
+export const select = s([
+  ["Select Docks", [" q"], "dock.png"],
+  ["Select Barracks", [" a"], "barracks.png"],
+  ["Select Ranges", [" s"], "range.png"],
+  ["Select Stables", [" d"], "stable.png"],
+  ["Select Siege", [" x"], "siege.png"],
+  ["Select Castles", [" z"], "castle.png"],
+  ["Select TCs", [" f"], "tc.png"],
+  ["Select Monasteries", [" ", { shift: 1, k: "a" }], "mona.png"],
+  ["Select University", [" ", { shift: 1, k: "s" }], "uni.png"],
+  ["Select Market", [" g"], "market.png"],
+  ["Select Blacksmith", [" ", { shift: 1, k: "f" }], "blacksmith.png"],
+]);
+
+export const queue = s([
+  ["Create Militia", [" ad"], "militia.png"],
+  ["Create Pike", [" af"], "pikeman.png"],
+  ["Select Docks", [" q"], "dock.png"],
+  ["Select Ranges", [" s"], "range.png"],
+  ["Select Stables", [" d"], "stable.png"],
+  ["Select Siege", [" x"], "siege.png"],
+  ["Select Castles", [" z"], "castle.png"],
+  ["Select TCs", [" f"], "tc.png"],
+  ["Select Monasteries", [" ", { shift: 1, k: "a" }], "mona.png"],
+  ["Select University", [" ", { shift: 1, k: "s" }], "uni.png"],
+  ["Select Market", [" g"], "market.png"],
+  ["Select Blacksmith", [" ", { shift: 1, k: "f" }], "blacksmith.png"],
+]);
 
 const game = {
   Diplomacy: h(" ", { ctrl: 1, k: "c" }),
@@ -40,8 +55,8 @@ const units = {
 
 const goToCommands = {
   "Go to Mill": h(" w"),
-  "Go to Lumber Camp": h(" ", {shift: 1, k: 'z'}),
-  "Go to Mining Camp": h(" ", {shift: 1, k: 'x'}),
+  "Go to Lumber Camp": h(" ", { shift: 1, k: "z" }),
+  "Go to Mining Camp": h(" ", { shift: 1, k: "x" }),
   "Go to TC": h({ k: "CapsLock" }),
   "Last Notification": h({ k: "Tab" }),
 };

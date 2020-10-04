@@ -5,7 +5,7 @@ type KeyDescription = {
   k: string;
 };
 export type Key = { key: string; ctrl: boolean; alt: boolean; shift: boolean };
-export type Combo = { title: string; keys: Key[] };
+export type Combo = { title: string; keys: Key[]; img?: string };
 
 export function h(...descriptions: (string | KeyDescription)[]): Key[] {
   return descriptions.flatMap((description) => {
@@ -28,6 +28,16 @@ export function c(keysByTitle: Record<string, Key[]>): Combo[] {
   return Object.keys(keysByTitle).map((title) => ({
     title,
     keys: keysByTitle[title],
+  }));
+}
+
+export function s(
+  all: [string, Array<string | KeyDescription>, string | undefined][]
+): Combo[] {
+  return all.map(([title, descriptions, img]) => ({
+    title,
+    keys: h(...descriptions),
+    img,
   }));
 }
 
